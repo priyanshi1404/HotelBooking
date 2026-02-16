@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking Page</title>
+
+    <!-- ========== CSS STYLES ========== -->
+    <style>
+      /* Reset & Base Styles */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        color: #333;
+      }
+
+      /* Header */
+      header {
+        background: #002b5c;
+        color: white;
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .hover-back:hover img {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+      }
+
+      nav input,
+      nav button {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 4px;
+      }
+
+      nav button {
+        background: #0078ff;
+        color: white;
+        cursor: pointer;
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* Sections */
+      main {
+        padding: 30px;
+      }
+
+      .hotel-section {
+        display: flex;
+        gap: 30px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .hotel-images {
+        flex: 1;
+      }
+
+      .hotel-images img {
+        border-radius: 8px;
+      }
+
+      .sub-images {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+
+      .hotel-details {
+        flex: 2;
+      }
+
+      .hotel-details h2 {
+        margin-bottom: 10px;
+      }
+
+      .price-rating {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0;
+      }
+
+      .price {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .rating {
+        color: green;
+      }
+
+      /* Booking Form */
+      .booking-form {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .booking-form form {
+        display: grid;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .booking-form input,
+      .booking-form button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .booking-form button {
+        background-color: #0078ff;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .button-wrapper-right {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+      }
+
+      .button-wrapper-right button {
+        padding: 10px 25px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .button-wrapper-right button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Guest Photos */
+      .guest-photos {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+      }
+
+      .photo-gallery {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      /* Reviews */
+      .reviews {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .review {
+        margin-bottom: 15px;
+      }
+
+      .stars {
+        color: gold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header>
+      <div class="logo hover-back">
+        <img
+          src="logo.png"
+          style="margin: 15px"
+          width="45"
+          height="45"
+          alt="Logo"
+        />
+      </div>
+
+      <nav>
+        <input type="text" placeholder="Ranikhet, Uttarakhand" />
+        <input type="date" />
+        <input type="date" />
+        <input type="number" min="1" value="2" />
+        <button>Search</button>
+      </nav>
+
+      <a
+        href="account.html"
+        class="user"
+        style="text-decoration: none; color: inherit"
+      >
+        <img src="login.png" alt="user" />
+        <span>My Account</span>
+      </a>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+      <!-- Hotel Details Section -->
+      <section class="hotel-section">
+        <div class="hotel-images">
+          <img class="main-image" src="hotel.png" alt="Hotel" />
+          <div class="sub-images">
+            <img src="room1.png" alt="room" />
+            <img src="pool.png" alt="room" />
+          </div>
+        </div>
+
+        <div class="hotel-details">
+          <h2>Smart room with Balcony (Max. 2 Adults)</h2>
+          <p>Ranikhet, Uttarakhand</p>
+          <p>Free breakfast · Free Wi-Fi · Non-refundable</p>
+          <div class="price-rating">
+            <div class="price">₹2000 <span>+ GST</span></div>
+            <div class="rating">⭐ 4.1 Very Good</div>
+          </div>
+          <button>View on Map</button>
+        </div>
+      </section>
+
+      <!-- Booking Form -->
+      <section class="booking-form">
+        <h3>Enter Guest Details</h3>
+        <form id="bookingForm">
+          <input type="text" id="firstName" placeholder="First Name" required />
+          <input type="text" placeholder="Last Name" required />
+          <input type="email" placeholder="Email" required />
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Phone Number"
+            required
+            pattern="[0-9]{10}"
+          />
+          <div class="button-wrapper-right">
+            <button type="submit">Confirm Booking</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Guest Photos -->
+      <section class="guest-photos">
+        <h3>Photos by Guests</h3>
+        <div class="photo-gallery">
+          <img src="https://via.placeholder.com/120x100" />
+          <img src="https://via.placeholder.com/120x100" />
+          <img src="https://via.placeholder.com/120x100" />
+          <img src="https://via.placeholder.com/120x100" />
+        </div>
+      </section>
+
+      <!-- Reviews -->
+      <section class="reviews">
+        <h3>Traveler Reviews</h3>
+        <div class="review-box">
+          <div class="review">
+            <strong>Gopal</strong>: “Nice clean rooms, well-maintained services.”
+            <span class="stars">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <div class="review">
+            <strong>Madhvi</strong>: “Excellent stay, safe, clean and prime
+            location.”
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <div class="review">
+            <strong>Ravi</strong>: “Could be better, small rooms.”
+            <span class="stars">⭐️⭐️⭐️</span>
+          </div>
+          <div class="review">
+            <strong>Kriti</strong>: “Poor service.”
+            <span class="stars">⭐️⭐️</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+      document
+        .getElementById("bookingForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const firstName = document.getElementById("firstName").value;
+          const email = document.querySelector('input[type="email"]').value;
+          const phone = document.getElementById("phone").value;
+
+          // Store data in localStorage
+          localStorage.setItem("guestName", firstName);
+          localStorage.setItem("guestEmail", email);
+          localStorage.setItem("guestPhone", phone);
+
+          alert(
+            `🎉 Booking Confirmed! Thank you for booking with us, ${firstName}!`
+          );
+        });
+    </script>
+  </body>
+</html>
